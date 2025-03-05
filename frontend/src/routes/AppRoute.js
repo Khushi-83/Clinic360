@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"; // ✅ Corrected import
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -9,21 +9,19 @@ import PatientDashboard from "../pages/PatientDashboard";
 import DoctorDashboard from "../pages/DoctorDashboard";
 import PrivateRoute from "./PrivateRoute";
 
-const AppRoutes = () => {
+const AppRoute = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/search" element={<SearchDoctors />} />
-        <Route path="/doctor/:id" element={<DoctorProfile />} />
-        <Route path="/book/:id" element={<PrivateRoute role="patient"><BookAppointment /></PrivateRoute>} />
-        <Route path="/dashboard/patient" element={<PrivateRoute role="patient"><PatientDashboard /></PrivateRoute>} />
-        <Route path="/dashboard/doctor" element={<PrivateRoute role="doctor"><DoctorDashboard /></PrivateRoute>} />
-      </Routes>
-    </Router>
+    <Routes>  {/* ✅ No extra BrowserRouter here */}
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/search" element={<SearchDoctors />} />
+      <Route path="/doctor/:id" element={<DoctorProfile />} />
+      <Route path="/book/:id" element={<PrivateRoute role="patient"><BookAppointment /></PrivateRoute>} />
+      <Route path="/dashboard/patient" element={<PrivateRoute role="patient"><PatientDashboard /></PrivateRoute>} />
+      <Route path="/dashboard/doctor" element={<PrivateRoute role="doctor"><DoctorDashboard /></PrivateRoute>} />
+    </Routes>
   );
 };
 
-export default AppRoutes;
+export default AppRoute;

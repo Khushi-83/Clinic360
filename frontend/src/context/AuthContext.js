@@ -1,13 +1,14 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(); // ✅ Correct context creation
+
+export const useAuth = () => useContext(AuthContext); // ✅ Hook for using AuthContext
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check local storage for saved session
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) setUser(storedUser);
   }, []);
@@ -15,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const { data } = await axios.post("/api/auth/login", { email, password });
-      setUser(data.user); // Includes role
+      setUser(data.user);
       localStorage.setItem("user", JSON.stringify(data.user));
     } catch (error) {
       console.error("Login Failed", error);
@@ -33,3 +34,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+export default AuthProvider;
