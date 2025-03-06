@@ -1,9 +1,13 @@
+require('dotenv').config();
+console.log(" Loaded MONGO_URI:", process.env.MONGO_URI);
+
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-dotenv.config();
+require('dotenv').config({ path: './backend/.env' });
+
 const app = express();
 
 app.use(express.json());
@@ -15,6 +19,12 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/doctor", require("./routes/doctorRoutes"));
+
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

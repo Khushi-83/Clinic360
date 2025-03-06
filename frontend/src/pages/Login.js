@@ -19,12 +19,22 @@ const Login = () => {
       });
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error);
+      if (!response.ok) {
+        if (response.status === 400) {
+          throw new Error(data.message || "Invalid credentials");
+        } else {
+          throw new Error(data.error || "Login failed");
+        }
+      }
 
       localStorage.setItem("token", data.token);
       navigate(role === "doctor" ? "/dashboard/doctor" : "/dashboard/patient");
     } catch (err) {
-      setError(err.message);
+      if (err.message === "Invalid credentials") {
+        setError("Invalid email or password. Please try again.");
+      } else {
+        setError(err.message || "An error occurred during login");
+      }
     }
   };
 
