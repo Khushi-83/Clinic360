@@ -29,7 +29,7 @@ const Register = () => {
     const body = { ...formData, role };
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch("https://clinic360-7rgl.onrender/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

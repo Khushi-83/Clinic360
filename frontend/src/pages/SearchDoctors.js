@@ -10,7 +10,7 @@ const SearchDoctors = () => {
 
   const searchDoctors = async () => {
     const query = new URLSearchParams(filters).toString();
-    const response = await fetch(`http://localhost:5000/api/doctors/search?${query}`);
+    const response = await fetch(`https://clinic360-7rgl.onrender/api/doctors/search?${query}`);
     const data = await response.json();
     setDoctors(data);
   };
