@@ -144,5 +144,5 @@ git push origin main  # Auto-deploys backend
 ---
 
 ## 📞 Contact
-For any issues or contributions, feel free to open an issue or contact me at **sinhakhushi0803@example.com**.
+For any issues or contributions, feel free to open an issue or contact me at **sinhakhushi0803@gmail.com**.
 
