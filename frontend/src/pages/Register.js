@@ -80,6 +80,7 @@ const Register = () => {
           <>
             <input type="text" placeholder="Speciality" className="w-full p-2 mb-2 border" required onChange={(e) => setFormData({ ...formData, speciality: e.target.value })} />
             <input type="number" placeholder="Years of Experience" className="w-full p-2 mb-2 border" required onChange={(e) => setFormData({ ...formData, experience: e.target.value })} />
+            <input type="text" placeholder="Phone Number" className="w-full p-2 mb-2 border" required onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
           </>
         )}
 
