@@ -41,7 +41,7 @@ const DoctorDashboard = () => {
   const handleLocationAdd = async (newLocation) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch("https://clinic360-7rgl.onrender/api/doctor/location", {
+      const res = await fetch("https://clinic360-7rgl.onrender.com/api/doctor/location", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const DoctorDashboard = () => {
   const handleAvailabilityUpdate = async (newAvailability) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch("https://clinic360-7rgl.onrender/api/doctor/availability", {
+      const res = await fetch("https://clinic360-7rgl.onrender.com/api/doctor/availability", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -6,7 +6,7 @@ const DoctorProfile = () => {
   const [doctor, setDoctor] = useState(null);
 
   useEffect(() => {
-    fetch(`https://clinic360-7rgl.onrender/api/doctors/${id}`)
+    fetch(`https://clinic360-7rgl.onrender.com/api/doctors/${id}`)
       .then((res) => res.json())
       .then((data) => setDoctor(data));
   }, [id]);

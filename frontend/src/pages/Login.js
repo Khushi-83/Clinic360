@@ -12,7 +12,7 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await fetch("https://clinic360-7rgl.onrender/api/auth/login", {
+      const response = await fetch("https://clinic360-7rgl.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, role }),
